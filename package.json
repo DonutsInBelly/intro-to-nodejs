@@ -1,0 +1,7 @@
+{
+  "name": "intro-to-nodejs",
+  "description": "My Tech Talk at HackFREE",
+  "main": "app.js",
+  "author": "Carlin",
+  "license": "MIT"
+}
