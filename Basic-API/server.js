@@ -34,4 +34,8 @@ app.get('/quote', (req, res)=>{
   res.send(quoteBank[index]);
 });
 
+app.get('/all', (req, res)=>{
+  res.send(quoteBank);
+});
+
 app.listen(process.env.PORT || 8080);

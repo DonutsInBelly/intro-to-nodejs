@@ -1,5 +1,4 @@
 // Dependencies
-var fs = require('fs');
 var express = require('express');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
@@ -12,13 +11,20 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
   request.get({
-    url: "http://01e1e14f.ngrok.io/users",
+    url: "https://carlin-api.herokuapp.com/quote",
   }, function(error, response, body) {
     console.log(body);
-    res.render('index.ejs', { users: JSON.parse(body) });
+    res.render('index.ejs', { object: JSON.parse(body) });
   });
-  // var stuff = fs.readFileSync('users.json', 'utf-8');
-  // stuff = JSON.parse(stuff);
 });
 
-app.listen(8080);
+app.get('/all', function(req, res) {
+  request.get({
+    url: "https://carlin-api.herokuapp.com/all",
+  }, function(error, response, body) {
+    console.log(body);
+    res.render('all.ejs', { object: JSON.parse(body) });
+  });
+});
+
+app.listen(process.env.PORT || 8080);
